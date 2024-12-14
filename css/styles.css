@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f0ec; /* Light Beige */
+    color: #333; /* Default text color */
+}
+
+/* Navbar basic styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distributes space between logo, links, and buttons */
+    align-items: center;
+    background-color: #e49b75; /* Dark Brown */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Center the navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-grow: 1; /* Allow nav-links to grow and take available space */
+    justify-content: center; /* Center the nav links */
+}
+
+.nav-links li {
+    display: inline; /* Ensure list items are inline */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 25px; /* Rounded corners for button-like appearance */
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #ffffff; /* White */
+    color: #885133; /* Dark Brown */
+    border: 2px solid #885133; /* Dark Brown */
+}
+
+/* Auth Links */
+.auth-links {
+    display: flex;
+    gap: 15px; /* Space between Sign In and Register buttons */
+}
+
+.auth-links a {
+    padding: 10px 20px;
+    color: #ffffff; /* White */
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 25px; /* Rounded corners for button-like appearance */
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.auth-links a:hover {
+    background-color: #ffffff; /* White */
+    color: #885133; /* Dark Brown */
+    border: 2px solid #885133; /* Dark Brown */
+}
+
+/* Responsive burger menu styling */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+.hero-section {
+    position: relative; /* Position relative for absolute overlay */
+    height: 100vh; /* Makes the section height fill the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-image: url('/images/pinoycuisine.webp'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+.hero-section::before {
+    content: ""; /* Create a pseudo-element */
+    position: absolute; /* Position it absolutely to cover the section */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Place it behind the text */
+}
+
+.hero-section h1, .hero-section p {
+    position: relative; /* Ensure text appears above the overlay */
+    z-index: 2; /* Place text above the overlay */
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+.hero-section .btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative; /* Position for layering */
+    z-index: 2; /* Place button above overlay */
+}
+
+.hero-section .btn:hover {
+    background-color: #e64a19;
+}
+
+
+.categories-section, .types-section, .contact-section, .about-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #f0e6d7; /* Soft Beige */
+}
+
+.categories-section h2, .types-section h2, .contact-section h2, .about-section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #d62300; /* Bright Red */
+}
+
+.categories, .types {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category-card, .type-card {
+    background-color: #ffffff; /* White for cards */
+    padding: 1.5rem;
+    width: 200px;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover, .type-card:hover {
+    transform: scale(1.05);
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.contact-section input, .contact-section textarea {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-section button {
+    padding: 0.75rem;
+    background-color: #d62300; /* Bright Red */
+    color: #ffffff; /* White */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: #c01e00; /* Slightly darker red on hover */
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+}
+.about-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #f0e6d7; /* Soft Beige */
+}
+
+.about-section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #d62300; /* Bright Red */
+}
+
+.about-section p {
+    text-align: justify; /* Justify the text */
+    margin-bottom: 2rem;
+    line-height: 1.6; /* Improve readability */
+}
+
+.contributors {
+    text-align: left; /* Align the contributors list to the left */
+    margin-top: 1rem;
+}
+
+.contributors ul {
+    list-style: none; /* Remove bullets */
+    padding-left: 0; /* Remove padding */
+}
+
+.contributors li {
+    margin: 0.5rem 0; /* Space between contributors */
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .categories, .types {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-section form {
+        width: 90%;
+    }
+}
+
+.logo img {
+    max-height: 60px; /* Adjust the height to fit the navbar */
+    width: auto; /* Ensures the width scales proportionally */
+    object-fit: contain; /* Ensures the image doesn't get stretched */
+}
+
+.footer {
+    background-color: #885133; /* Dark Brown */
+    color: #ffffff; /* White */
+    padding: 1.5rem 0;
+
+    margin-top:auto;
+}
+
+.footer .social-media {
+    margin-bottom: 1rem;
+}
+
+.footer .social-link {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 2rem; /* Adjust the size of the icons */
+    color: #ffffff; /* White */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer .social-link:hover {
+    transform: scale(1.2);
+    color: #f0e6d7; /* Soft Beige */
+}
+
+.footer p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+h1, h2 {
+    font-family: 'Pacifico', cursive;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.contact-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #f4f0ec; /* Light Beige */
+}
+
+.contact-section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #d62300; /* Bright Red */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    gap: 2rem; /* Space between the form and map */
+    max-width: 1200px; /* Limit the maximum width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.contact-form {
+    flex: 1; /* Take up available space */
+    min-width: 300px; /* Set a minimum width for better layout */
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease; /* Add transition for effects */
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border color and shadow */
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    border-color: #d62300; /* Bright Red on focus */
+    box-shadow: 0 0 5px rgba(214, 35, 0, 0.5); /* Subtle shadow effect */
+    outline: none; /* Remove default outline */
+}
+
+.contact-section button {
+    padding: 0.75rem;
+    background-color: #d62300; /* Bright Red */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and scale */
+}
+
+.contact-section button:hover {
+    background-color: #a61b00; /* Darker shade on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.google-map {
+    flex: 1; /* Take up available space */
+    min-width: 300px; /* Set a minimum width for better layout */
+}
+
+.google-map iframe {
+    width: 100%; /* Make the iframe responsive */
+    height: 300px; /* Set height */
+    border: 0; /* Remove border */
+}
+
+/* Style for the buttons */
+.btn, .nav-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 25px; /* Rounded corners for button-like appearance */
+    background-color: #d62300; /* Bright Red */
+    transition: all 0.3s ease;
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+.btn:hover, .nav-button:hover {
+    background-color: #f0e6d7; /* Soft Beige */
+    color: #d62300; /* Bright Red */
+    border: 2px solid #d62300; /* Bright Red */
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition for fade and position */
+}
+
+.fade-in.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move back to original position */
+}
+.contributors {
+    display: flex;               /* Use flexbox for layout */
+    justify-content: center;     /* Center the contributor cards */
+    flex-wrap: wrap;            /* Allow wrapping to the next line if needed */
+    padding: 2rem;              /* Add some padding around the section */
+}
+
+.contributor-card {
+    background-color: #f0e6d7;  /* Light background for each card */
+    border: 2px solid #d62300;  /* Red border */
+    border-radius: 10px;        /* Rounded corners */
+    padding: 1.5rem;            /* Inner padding */
+    margin: 1rem;               /* Space between cards */
+    text-align: center;         /* Center text within cards */
+    width: 250px;               /* Fixed width for cards */
+}
+
+.contributor-image {
+    width: 100px;               /* Set width for images */
+    height: 100px;              /* Set height for images */
+    border-radius: 50%;         /* Make images circular */
+    object-fit: cover;          /* Ensure image covers the area without distortion */
+    margin-bottom: 1rem;        /* Space between image and text */
+}
+
+/* Loading Spinner CSS */
+#loading-spinner {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    z-index: 9999; /* On top of all content */
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #d62300; /* Bright Red */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
